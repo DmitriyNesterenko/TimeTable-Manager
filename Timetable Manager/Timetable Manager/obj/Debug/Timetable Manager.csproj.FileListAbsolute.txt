@@ -1,0 +1,19 @@
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.exe.config
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.exe
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.pdb
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\MainWindow.g.cs
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\App.g.cs
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager_MarkupCompile.cache
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager_MarkupCompile.lref
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\MainWindow.baml
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.g.resources
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Properties.Resources.resources
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csproj.GenerateResource.Cache
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.exe
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.pdb
+c:\users\dmitriy\documents\visual studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Resources.resources
+C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\LessonWindow.g.cs
+C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\LessonWindow.baml
+C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csprojResolveAssemblyReference.cache
+C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\TimeSetUp.g.cs
+C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\obj\Debug\TimeSetUp.baml
