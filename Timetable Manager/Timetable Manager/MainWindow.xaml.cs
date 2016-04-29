@@ -158,7 +158,7 @@ namespace Timetable_Manager
         }
 
         //This event AddItem to listView and add it to the database of the app.
-        private void btn_AddItem_Click(object sender, RoutedEventArgs e)
+        private void btn_AddLesson_Click(object sender, RoutedEventArgs e)
         {
             maxId++;
             String itemStr = txtBox_Item.Text.Trim(trimChars);

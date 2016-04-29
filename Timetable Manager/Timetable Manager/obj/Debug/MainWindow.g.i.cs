@@ -67,7 +67,7 @@ namespace Timetable_Manager {
         
         #line 42 "..\..\MainWindow.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btn_AddItem;
+        internal System.Windows.Controls.Button btn_AddLesson;
         
         #line default
         #line hidden
@@ -180,10 +180,10 @@ namespace Timetable_Manager {
             this.txtBox_Item = ((System.Windows.Controls.TextBox)(target));
             return;
             case 5:
-            this.btn_AddItem = ((System.Windows.Controls.Button)(target));
+            this.btn_AddLesson = ((System.Windows.Controls.Button)(target));
             
             #line 42 "..\..\MainWindow.xaml"
-            this.btn_AddItem.Click += new System.Windows.RoutedEventHandler(this.btn_AddItem_Click);
+            this.btn_AddLesson.Click += new System.Windows.RoutedEventHandler(this.btn_AddLesson_Click);
             
             #line default
             #line hidden
