@@ -49,6 +49,7 @@
         </Button>
         <Menu x:Name="menu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Width="301">
             <MenuItem Header="File">
+                <MenuItem x:Name="menuBtn_ChangeDate" Header="Change date" Click="menuBtn_ChangeDate_Click" />
                 <MenuItem x:Name="menuBtn_Export" Header="Export..." Click="menuBtn_Export_Click"/>
                 <MenuItem x:Name="menuBtn_Exit" Header="Exit" Click="menuBtn_Exit_Click" />
             </MenuItem>
@@ -57,13 +58,5 @@
             </MenuItem>
         </Menu>
         <Label x:Name="lbl_helpAddItem" Content="Enter lesson:" HorizontalAlignment="Left" Margin="17,29,0,0" VerticalAlignment="Top" Width="176" Foreground="White" RenderTransformOrigin="0.5,0.5"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="199,83,0,0" VerticalAlignment="Top" Width="75" BorderBrush="White">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
-                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
-                    <GradientStop Color="White" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
-        </ComboBox>
     </Grid>
 </Window>

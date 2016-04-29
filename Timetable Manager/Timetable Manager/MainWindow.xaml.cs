@@ -285,6 +285,7 @@ namespace Timetable_Manager
                 "Version: Build 0004");
         }
 
+        //Начать работу с уроком. Открывается окно по работе с уроком.
         private void ListItem_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (MessageBoxResult.Yes == MessageBox.Show("You are about to start lesson. Are you sure?", "Caption", MessageBoxButton.YesNo))
@@ -301,6 +302,12 @@ namespace Timetable_Manager
                     MessageBox.Show(exc.Message);
                 }
             }
+        }
+
+        //Меняем дату отображения списка.
+        private void menuBtn_ChangeDate_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
