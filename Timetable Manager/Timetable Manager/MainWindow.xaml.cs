@@ -91,7 +91,7 @@ namespace Timetable_Manager
                 SqlParameter parametr = new SqlParameter();
                 parametr.ParameterName = "@DATE";
                 parametr.SqlDbType = SqlDbType.Date;
-                parametr.Value = dt.Day.ToString() + "/" + dt.Month.ToString() + "/" + dt.Year.ToString();
+                parametr.Value = dt.Day.ToString() + "." + dt.Month.ToString() + "." + dt.Year.ToString();
                 command.Parameters.Add(parametr);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -112,15 +112,26 @@ namespace Timetable_Manager
                 ListItem.Items.Clear();
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
+
+                //Получаем сегодняшнию дату, для правильного отображения ListItem.
+                DateTime dt = DateTime.Now;
+
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "SELECT Item, Time, Id FROM Item";
+                command.CommandText = "SELECT Item, Time, Id FROM Item WHERE Date=@DATE";
+
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@DATE";
+                parameter.SqlDbType = SqlDbType.Date;
+                parameter.Value = string.Format($"{dt.Day}.{dt.Month}.{dt.Year}");
+                command.Parameters.Add(parameter);
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 while(reader.Read())
                 {
                     //MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = reader["Time"].ToString(), Id = reader[2].ToString() };
-                    string[] str = reader["Time"].ToString().Split(new char[] { ':', '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] str = reader["Time"].ToString().Split(new char[] { ':', '.', '/' }, StringSplitOptions.RemoveEmptyEntries);
                     int hours = int.Parse(str[0]);
                     int minutes = int.Parse(str[1].ToString());
                     int seconds = int.Parse(str[2].ToString());
@@ -197,6 +208,9 @@ namespace Timetable_Manager
 
                 command.Dispose();
                 txtBox_Item.Text = string.Empty;
+
+                //Обновить ListItem.
+                LoadData();
 
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
