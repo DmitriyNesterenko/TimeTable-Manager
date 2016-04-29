@@ -92,7 +92,10 @@ namespace Timetable_Manager
         {
             int Number = int.Parse(txt_Number.Text);
             lessonTime.windowTimeSetUp = new TimeSpan(0, Number, 0);
-            lessonTime.dateForLesson = calendarDate.SelectedDate;
+            if (calendarDate.SelectedDate != null)
+                lessonTime.dateForLesson = calendarDate.SelectedDate;
+            else
+                lessonTime.dateForLesson = DateTime.Now;
             windowTimeSetUp.Close();
         }
 
