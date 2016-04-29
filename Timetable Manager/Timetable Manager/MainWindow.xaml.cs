@@ -34,7 +34,8 @@ namespace Timetable_Manager
         public List<MyLesson> list = new List<MyLesson>();
         public static String connectionString = @"Data Source = (local)\SQLEXPRESS;
             Initial Catalog = TimeTable; Integrated Security = True";
-        public DateTime? dt;
+
+        public static DateTime? dt;
 
         #endregion
 
@@ -113,8 +114,7 @@ namespace Timetable_Manager
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
 
-                //Получаем сегодняшнию дату, для правильного отображения ListItem.
-                DateTime dt = DateTime.Now;
+                //Получаем нужную дату, для правильного отображения ListItem.
 
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
@@ -123,14 +123,13 @@ namespace Timetable_Manager
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@DATE";
                 parameter.SqlDbType = SqlDbType.Date;
-                parameter.Value = string.Format($"{dt.Day}.{dt.Month}.{dt.Year}");
+                parameter.Value = string.Format($"{dt.Value.Day}.{dt.Value.Month}.{dt.Value.Year}");
                 command.Parameters.Add(parameter);
                 
                 SqlDataReader reader = command.ExecuteReader();
 
                 while(reader.Read())
                 {
-                    //MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = reader["Time"].ToString(), Id = reader[2].ToString() };
                     string[] str = reader["Time"].ToString().Split(new char[] { ':', '.', '/' }, StringSplitOptions.RemoveEmptyEntries);
                     int hours = int.Parse(str[0]);
                     int minutes = int.Parse(str[1].ToString());
@@ -307,7 +306,9 @@ namespace Timetable_Manager
         //Меняем дату отображения списка.
         private void menuBtn_ChangeDate_Click(object sender, RoutedEventArgs e)
         {
-
+            ChangeDate changeDate = new ChangeDate();
+            changeDate.ShowDialog();
+            LoadData();
         }
     }
 }

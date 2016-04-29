@@ -22,7 +22,6 @@ C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.pdb
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.exe
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.pdb
-C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csprojResolveAssemblyReference.cache
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonWindow.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\MainWindow.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\TimeSetUp.g.cs
@@ -36,3 +35,5 @@ C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Properties.Resources.resources
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Resources.resources
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csproj.GenerateResource.Cache
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\ChangeDate.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\ChangeDate.baml

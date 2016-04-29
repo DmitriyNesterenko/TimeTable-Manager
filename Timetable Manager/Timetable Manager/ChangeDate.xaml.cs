@@ -23,5 +23,16 @@ namespace Timetable_Manager
         {
             InitializeComponent();
         }
+
+        private void btn_ChangeDate_Click(object sender, RoutedEventArgs e)
+        {
+            if (changeDate_Calendar.SelectedDate != null)
+                MainWindow.dt = changeDate_Calendar.SelectedDate;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
     }
 }

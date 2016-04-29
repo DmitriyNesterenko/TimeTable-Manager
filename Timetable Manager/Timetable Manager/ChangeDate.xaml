@@ -5,8 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timetable_Manager"
         mc:Ignorable="d"
-        Title="ChangeDate" Height="300" Width="300">
+        Title="Change Date" Height="235.775" Width="190.141" Closing="Window_Closing">
     <Grid>
-        
+        <Calendar x:Name="changeDate_Calendar" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btn_ChangeDate" Content="Change Date" HorizontalAlignment="Left" Margin="0,168,0,0" VerticalAlignment="Top" Width="179" Height="37" Click="btn_ChangeDate_Click"/>
+
     </Grid>
 </Window>
