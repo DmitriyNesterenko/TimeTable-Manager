@@ -34,7 +34,8 @@ namespace Timetable_Manager
         public List<MyLesson> list = new List<MyLesson>();
         public static String connectionString = @"Data Source = (local)\SQLEXPRESS;
             Initial Catalog = TimeTable; Integrated Security = True";
-        public DateTime? dt;
+
+        public static DateTime? dt = DateTime.Now;
 
         #endregion
 
@@ -91,7 +92,7 @@ namespace Timetable_Manager
                 SqlParameter parametr = new SqlParameter();
                 parametr.ParameterName = "@DATE";
                 parametr.SqlDbType = SqlDbType.Date;
-                parametr.Value = dt.Day.ToString() + "/" + dt.Month.ToString() + "/" + dt.Year.ToString();
+                parametr.Value = dt.Day.ToString() + "." + dt.Month.ToString() + "." + dt.Year.ToString();
                 command.Parameters.Add(parametr);
                 command.ExecuteNonQuery();
                 connection.Close();
@@ -112,15 +113,24 @@ namespace Timetable_Manager
                 ListItem.Items.Clear();
                 if (connection.State == ConnectionState.Closed)
                     connection.Open();
+
+                //Получаем нужную дату, для правильного отображения ListItem.
+
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "SELECT Item, Time, Id FROM Item";
+                command.CommandText = "SELECT Item, Time, Id FROM Item WHERE Date=@DATE";
+
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@DATE";
+                parameter.SqlDbType = SqlDbType.Date;
+                parameter.Value = string.Format($"{dt.Value.Day}.{dt.Value.Month}.{dt.Value.Year}");
+                command.Parameters.Add(parameter);
+                
                 SqlDataReader reader = command.ExecuteReader();
 
                 while(reader.Read())
                 {
-                    //MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = reader["Time"].ToString(), Id = reader[2].ToString() };
-                    string[] str = reader["Time"].ToString().Split(new char[] { ':', '.' }, StringSplitOptions.RemoveEmptyEntries);
+                    string[] str = reader["Time"].ToString().Split(new char[] { ':', '.', '/' }, StringSplitOptions.RemoveEmptyEntries);
                     int hours = int.Parse(str[0]);
                     int minutes = int.Parse(str[1].ToString());
                     int seconds = int.Parse(str[2].ToString());
@@ -166,7 +176,7 @@ namespace Timetable_Manager
 
             #region Настройка времени модуля
 
-            LessonTime lessonTime = TimeSetUp.SetTime();
+            LessonTime lessonTime = LessonSetUp.SetTime();
             newItem.TimeRest = lessonTime.windowTimeSetUp;
             dt = lessonTime.dateForLesson;
             if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
@@ -198,8 +208,15 @@ namespace Timetable_Manager
                 command.Dispose();
                 txtBox_Item.Text = string.Empty;
 
+                //Обновить ListItem.
+                LoadData();
+
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
+            }
+            catch(LessonSetUpException exc)
+            {
+                MessageBox.Show(exc.Message, "Time set up error");
             }
             catch(Exception exc)
             {
@@ -271,6 +288,7 @@ namespace Timetable_Manager
                 "Version: Build 0004");
         }
 
+        //Начать работу с уроком. Открывается окно по работе с уроком.
         private void ListItem_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
         {
             if (MessageBoxResult.Yes == MessageBox.Show("You are about to start lesson. Are you sure?", "Caption", MessageBoxButton.YesNo))
@@ -286,6 +304,21 @@ namespace Timetable_Manager
                 {
                     MessageBox.Show(exc.Message);
                 }
+            }
+        }
+
+        //Меняем дату отображения списка.
+        private void menuBtn_ChangeDate_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                ChangeDate changeDate = new ChangeDate();
+                changeDate.ShowDialog();
+                LoadData();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Change date on calander has been ended not succesfully");
             }
         }
     }

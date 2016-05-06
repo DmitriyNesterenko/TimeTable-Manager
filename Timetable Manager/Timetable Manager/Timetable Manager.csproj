@@ -56,9 +56,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="TimeSetUp.xaml.cs">
-      <DependentUpon>TimeSetUp.xaml</DependentUpon>
+    <Compile Include="LessonSetUpException.cs" />
+    <Compile Include="ChangeDate.xaml.cs">
+      <DependentUpon>ChangeDate.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LessonSetUp.xaml.cs">
+      <DependentUpon>LessonSetUp.xaml</DependentUpon>
+    </Compile>
+    <Page Include="ChangeDate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="LessonWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -78,7 +86,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="TimeSetUp.xaml">
+    <Page Include="LessonSetUp.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

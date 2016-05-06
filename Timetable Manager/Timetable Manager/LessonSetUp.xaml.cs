@@ -25,20 +25,20 @@ namespace Timetable_Manager
         }
     }
 
-    public partial class TimeSetUp : Window
+    public partial class LessonSetUp : Window
     {
-        private static TimeSetUp windowTimeSetUp = null;
+        private static LessonSetUp windowTimeSetUp = null;
         private static LessonTime lessonTime;
 
         public static LessonTime SetTime()
         {
-            windowTimeSetUp = new TimeSetUp();
+            windowTimeSetUp = new LessonSetUp();
             windowTimeSetUp.ShowDialog();
 
             return lessonTime;
         }
 
-        public TimeSetUp()
+        public LessonSetUp()
         {
             InitializeComponent();
             lessonTime = new LessonTime();
@@ -48,7 +48,7 @@ namespace Timetable_Manager
         {
             try
             {
-                int Number = int.Parse(txt_Number.Text);
+                int Number = int.Parse(txt_Number.Text, System.Globalization.NumberStyles.AllowLeadingWhite, null);
                 Number += 5;
 
                 if (Number > 60)
@@ -62,7 +62,7 @@ namespace Timetable_Manager
             }
             catch(Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                throw new LessonSetUpException();
             }
         }
 
@@ -70,7 +70,7 @@ namespace Timetable_Manager
         {
             try
             {
-                int Number = int.Parse(txt_Number.Text);
+                int Number = int.Parse(txt_Number.Text, System.Globalization.NumberStyles.AllowLeadingWhite, null);
                 Number -= 5;
 
                 if (Number < 5)
@@ -84,19 +84,29 @@ namespace Timetable_Manager
             }
             catch (Exception exc)
             {
-                MessageBox.Show(exc.Message);
+                throw new LessonSetUpException();
             }
         }
 
         private void btn_Accept_Click(object sender, RoutedEventArgs e)
         {
-            int Number = int.Parse(txt_Number.Text);
-            lessonTime.windowTimeSetUp = new TimeSpan(0, Number, 0);
-            if (calendarDate.SelectedDate != null)
-                lessonTime.dateForLesson = calendarDate.SelectedDate;
-            else
-                lessonTime.dateForLesson = DateTime.Now;
-            windowTimeSetUp.Close();
+            try {
+                int Number = int.Parse(txt_Number.Text, System.Globalization.NumberStyles.AllowLeadingWhite, null);
+                lessonTime.windowTimeSetUp = new TimeSpan(0, Number, 0);
+                if (calendarDate.SelectedDate != null)
+                    lessonTime.dateForLesson = calendarDate.SelectedDate;
+                else
+                    lessonTime.dateForLesson = DateTime.Now;
+                windowTimeSetUp.Close();
+            }
+            catch(ArgumentException exc)
+            {
+                throw new LessonSetUpException("Argument not parsing to int.");
+            }
+            catch(Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Time set up error");
+            }
         }
 
         private void btn_Cancel_Click(object sender, RoutedEventArgs e)
