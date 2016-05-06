@@ -24,16 +24,16 @@ C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Debug\Timetable Manager.pdb
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonWindow.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\MainWindow.g.cs
-C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\TimeSetUp.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\App.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager_MarkupCompile.cache
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager_MarkupCompile.lref
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonWindow.baml
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\MainWindow.baml
-C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\TimeSetUp.baml
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.g.resources
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Properties.Resources.resources
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable_Manager.Resources.resources
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csproj.GenerateResource.Cache
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\ChangeDate.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\ChangeDate.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonSetUp.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonSetUp.baml

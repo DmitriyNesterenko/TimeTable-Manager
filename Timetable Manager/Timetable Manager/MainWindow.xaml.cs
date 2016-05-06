@@ -35,7 +35,7 @@ namespace Timetable_Manager
         public static String connectionString = @"Data Source = (local)\SQLEXPRESS;
             Initial Catalog = TimeTable; Integrated Security = True";
 
-        public static DateTime? dt;
+        public static DateTime? dt = DateTime.Now;
 
         #endregion
 
@@ -176,7 +176,7 @@ namespace Timetable_Manager
 
             #region Настройка времени модуля
 
-            LessonTime lessonTime = TimeSetUp.SetTime();
+            LessonTime lessonTime = LessonSetUp.SetTime();
             newItem.TimeRest = lessonTime.windowTimeSetUp;
             dt = lessonTime.dateForLesson;
             if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
@@ -213,6 +213,10 @@ namespace Timetable_Manager
 
                 if (connection.State == ConnectionState.Open)
                     connection.Close();
+            }
+            catch(LessonSetUpException exc)
+            {
+                MessageBox.Show(exc.Message, "Time set up error");
             }
             catch(Exception exc)
             {
@@ -306,9 +310,16 @@ namespace Timetable_Manager
         //Меняем дату отображения списка.
         private void menuBtn_ChangeDate_Click(object sender, RoutedEventArgs e)
         {
-            ChangeDate changeDate = new ChangeDate();
-            changeDate.ShowDialog();
-            LoadData();
+            try
+            {
+                ChangeDate changeDate = new ChangeDate();
+                changeDate.ShowDialog();
+                LoadData();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Change date on calander has been ended not succesfully");
+            }
         }
     }
 }

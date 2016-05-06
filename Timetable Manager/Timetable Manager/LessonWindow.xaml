@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timetable_Manager"
         mc:Ignorable="d"
-        Title="Lesson Window" Height="266.25" Width="638.809" Closing="Window_Closing" ResizeMode="NoResize">
+        Title="Lesson Window" Height="258.25" Width="679.809" Closing="Window_Closing" ResizeMode="NoResize">
     <Grid>
-        <TextBlock Name="TBCountDown" Width="300" Height="150" TextAlignment="Center" FontSize="70" Text="00:00:00"></TextBlock>
-        <Button x:Name="btn_Start" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Click="btn_Start_Click"/>
-        <Button x:Name="btn_Pause" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,52,0,0" Click="btn_Pause_Click"/>
-        <Button x:Name="btn_Reset" Content="Reset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,104,0,0" Click="btn_Reset_Click"/>
-        <TextBlock x:Name="TBLessonName" TextAlignment="Justify" Margin="166,4,165,193" TextWrapping="Wrap" Text="Lesson" Width="300" FontSize="18"/>
+        <TextBlock Name="TBCountDown" Width="300" Height="150" TextAlignment="Center" FontSize="70" Text="00:00:00" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="83,49,0,0"></TextBlock>
+        <Button x:Name="btn_Start" Content="Start" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Click="btn_Start_Click" Margin="0,33,0,0"/>
+        <Button x:Name="btn_Pause" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,90,0,0" Click="btn_Pause_Click"/>
+        <Button x:Name="btn_Reset" Content="Reset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,147,0,0" Click="btn_Reset_Click"/>
+        <TextBlock x:Name="TBLessonName" TextAlignment="Justify" Margin="83,5,266,173" TextWrapping="Wrap" Text="Lesson" Width="300" FontSize="18"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="178" Margin="388,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
     </Grid>
 </Window>

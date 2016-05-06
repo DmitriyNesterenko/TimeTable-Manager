@@ -72,7 +72,7 @@ namespace Timetable_Manager
 
         private void Timer_Tick(object sender, EventArgs e)
         {
-            currentLesson.TimeRest = new TimeSpan(0, time / 60, time % 60);
+            //currentLesson.TimeRest = new TimeSpan(0, time / 60, time % 60);
             if (time > 0)
             {
                 if (time <= 10)
@@ -139,11 +139,12 @@ namespace Timetable_Manager
             }
         }
 
-        //Обновляет базу данных: оставшееся время предмета.
+        //Обновляет базу данных: оставшееся время урока.
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             timer.Stop();
             SqlConnection connection = new SqlConnection(MainWindow.connectionString);
+            currentLesson.TimeRest = new TimeSpan(0, time / 60, time % 60);
 
             try
             {
@@ -157,6 +158,10 @@ namespace Timetable_Manager
                     connection.Close();
 
 
+            }
+            catch(SqlException exc)
+            {
+                MessageBox.Show(exc.Message, "SQL-Error was happened when window closing");
             }
             catch(Exception exc)
             {
