@@ -14,12 +14,13 @@ using System.Windows.Shapes;
 
 namespace Timetable_Manager
 {
-    public sealed class LessonTime
+    public sealed class LessonInfo
     {
         public TimeSpan windowTimeSetUp { get; set; }
         public DateTime? dateForLesson { get; set; }
+        public StringBuilder comments { get; set; }
 
-        public LessonTime()
+        public LessonInfo()
         {
             dateForLesson = DateTime.Now;
         }
@@ -28,9 +29,9 @@ namespace Timetable_Manager
     public partial class LessonSetUp : Window
     {
         private static LessonSetUp windowTimeSetUp = null;
-        private static LessonTime lessonTime;
+        private static LessonInfo lessonTime;
 
-        public static LessonTime SetTime()
+        public static LessonInfo SetTime()
         {
             windowTimeSetUp = new LessonSetUp();
             windowTimeSetUp.ShowDialog();
@@ -41,7 +42,7 @@ namespace Timetable_Manager
         public LessonSetUp()
         {
             InitializeComponent();
-            lessonTime = new LessonTime();
+            lessonTime = new LessonInfo();
         }
 
         private void btn_GreatNumber_Click(object sender, RoutedEventArgs e)
@@ -97,6 +98,7 @@ namespace Timetable_Manager
                     lessonTime.dateForLesson = calendarDate.SelectedDate;
                 else
                     lessonTime.dateForLesson = DateTime.Now;
+                lessonTime.comments = new StringBuilder(txtBox_lessonComment.Text);
                 windowTimeSetUp.Close();
             }
             catch(ArgumentException exc)

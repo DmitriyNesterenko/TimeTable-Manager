@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timetable_Manager"
         mc:Ignorable="d"
-        Title="TimeSetUp" Height="298.687" Width="461.495" ResizeMode="NoResize">
+        Title="Time Set Up" Height="298.687" Width="461.495" ResizeMode="NoResize">
     <Grid>
         <Button x:Name="btn_Accept" Content="Accept" HorizontalAlignment="Left" Margin="129,214,0,0" VerticalAlignment="Top" Width="61" Height="39" Click="btn_Accept_Click"/>
         <Button x:Name="btn_Cancel" Content="Cancel" HorizontalAlignment="Left" Margin="129,176,0,0" VerticalAlignment="Top" Width="61" Height="38" Click="btn_Cancel_Click"/>

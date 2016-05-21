@@ -115,10 +115,9 @@ namespace Timetable_Manager
                     connection.Open();
 
                 //Получаем нужную дату, для правильного отображения ListItem.
-
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = "SELECT Item, Time, Id FROM Item WHERE Date=@DATE";
+                command.CommandText = "SELECT * FROM Item WHERE Date=@DATE";
 
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@DATE";
@@ -135,7 +134,7 @@ namespace Timetable_Manager
                     int minutes = int.Parse(str[1].ToString());
                     int seconds = int.Parse(str[2].ToString());
 
-                    MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = new TimeSpan(hours, minutes, seconds), Id = reader[2].ToString() };
+                    MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = new TimeSpan(hours, minutes, seconds), Id = reader[2].ToString(), Comments= new StringBuilder(reader["Comments"].ToString()) };
                     ListItem.Items.Add(newItem);
                     list.Add(newItem);
                 }
@@ -168,6 +167,7 @@ namespace Timetable_Manager
         }
 
         //This event AddItem to listView and add it to the database of the app.
+        // РЕАЛИЗОВАТЬ КОММЕНТАРИИ К УРОКУ!!!
         private void btn_AddLesson_Click(object sender, RoutedEventArgs e)
         {
             maxId++;
@@ -176,9 +176,10 @@ namespace Timetable_Manager
 
             #region Настройка времени модуля
 
-            LessonTime lessonTime = LessonSetUp.SetTime();
-            newItem.TimeRest = lessonTime.windowTimeSetUp;
-            dt = lessonTime.dateForLesson;
+            LessonInfo lessonInfo = LessonSetUp.SetTime();
+            newItem.TimeRest = lessonInfo.windowTimeSetUp;
+            newItem.Comments = lessonInfo.comments;
+            dt = lessonInfo.dateForLesson;
             if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
                 return;
 
@@ -195,7 +196,7 @@ namespace Timetable_Manager
 
                 SqlCommand command = new SqlCommand();
                 command.Connection = connection;
-                command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date);";
+                command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date, Comments) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date, '{newItem.Comments.ToString()}');";
 
                 SqlParameter parameter = new SqlParameter();
                 parameter.ParameterName = "@Date";
