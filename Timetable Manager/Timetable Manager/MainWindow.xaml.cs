@@ -315,6 +315,10 @@ namespace Timetable_Manager
                 ChangeDate changeDate = new ChangeDate();
                 changeDate.ShowDialog();
                 LoadData();
+                if (dt != DateTime.Now)
+                    this.lbl_date.Content = "Choose date: " + dt.Value.Day + "." + dt.Value.Month + "." + dt.Value.Year;
+                else
+                    this.lbl_date.Content = "Today: " + dt.Value.Day + "." + dt.Value.Month + "." + dt.Value.Year;
             }
             catch (Exception exc)
             {

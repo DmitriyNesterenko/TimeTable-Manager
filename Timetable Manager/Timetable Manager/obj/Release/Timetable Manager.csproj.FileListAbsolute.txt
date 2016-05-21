@@ -1,0 +1,21 @@
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.exe.config
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.exe
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.pdb
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.csprojResolveAssemblyReference.cache
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\ChangeDate.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\LessonWindow.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\MainWindow.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\LessonSetUp.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\App.g.cs
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager_MarkupCompile.cache
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager_MarkupCompile.lref
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\ChangeDate.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\LessonWindow.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\MainWindow.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\LessonSetUp.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.g.resources
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable_Manager.Properties.Resources.resources
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable_Manager.Resources.resources
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.csproj.GenerateResource.Cache
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.exe
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.pdb

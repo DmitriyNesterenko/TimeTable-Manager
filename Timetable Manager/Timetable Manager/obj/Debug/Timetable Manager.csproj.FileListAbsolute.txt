@@ -37,3 +37,4 @@ C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\ChangeDate.baml
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonSetUp.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\LessonSetUp.baml
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Debug\Timetable Manager.csprojResolveAssemblyReference.cache
