@@ -1,7 +1,6 @@
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.exe.config
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.exe
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\bin\Release\Timetable Manager.pdb
-C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.csprojResolveAssemblyReference.cache
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\ChangeDate.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\LessonWindow.g.cs
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\MainWindow.g.cs
@@ -19,3 +18,4 @@ C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.csproj.GenerateResource.Cache
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.exe
 C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.pdb
+C:\Users\Dmitriy\Documents\TimeTable-Manager\Timetable Manager\Timetable Manager\obj\Release\Timetable Manager.csprojResolveAssemblyReference.cache

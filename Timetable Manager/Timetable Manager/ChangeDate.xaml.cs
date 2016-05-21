@@ -19,6 +19,8 @@ namespace Timetable_Manager
     /// </summary>
     public partial class ChangeDate : Window
     {
+        DateTime? changedDateTime = DateTime.Now;
+
         public ChangeDate()
         {
             InitializeComponent();
@@ -33,9 +35,15 @@ namespace Timetable_Manager
             }
         }
 
-        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private void changeDate_Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
         {
+            changedDateTime = changeDate_Calendar.SelectedDate;
 
+            if (changedDateTime.Value.Year < DateTime.Now.Year || (changedDateTime.Value.Month < DateTime.Now.Month && changedDateTime.Value.Day < DateTime.Now.Day && changedDateTime.Value.Year == DateTime.Now.Year)
+                || (changedDateTime.Value.Day < DateTime.Now.Day && changedDateTime.Value.Month == DateTime.Now.Month && changedDateTime.Value.Year == DateTime.Now.Year))
+                btn_ChangeDate.IsEnabled = false;
+            else
+                btn_ChangeDate.IsEnabled = true;
         }
     }
 }
