@@ -98,7 +98,11 @@ namespace Timetable_Manager
                     lessonTime.dateForLesson = calendarDate.SelectedDate;
                 else
                     lessonTime.dateForLesson = DateTime.Now;
-                lessonTime.comments = new StringBuilder(txtBox_lessonComment.Text);
+
+                if (txtBox_lessonComment.Text != "Comments for lesson")
+                    lessonTime.comments = new StringBuilder(txtBox_lessonComment.Text);
+                else
+                    lessonTime.comments = new StringBuilder(" ");
                 windowTimeSetUp.Close();
             }
             catch(ArgumentException exc)
