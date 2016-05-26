@@ -269,6 +269,7 @@ namespace Timetable_Manager
                     command.CommandText = "DELETE FROM Item WHERE Id=" + deletedItem.Id + ";";
                     command.ExecuteNonQuery();
 
+                    maxId--;
                     LoadData();
 
                     if (connection.State == ConnectionState.Open)
