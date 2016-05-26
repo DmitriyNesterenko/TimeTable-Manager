@@ -12,6 +12,6 @@
         <Button x:Name="btn_Pause" Content="Pause" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,90,0,0" Click="btn_Pause_Click"/>
         <Button x:Name="btn_Reset" Content="Reset" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Height="52" Margin="0,147,0,0" Click="btn_Reset_Click"/>
         <TextBlock x:Name="TBLessonName" TextAlignment="Justify" Margin="83,5,266,173" TextWrapping="Wrap" Text="Lesson" Width="300" FontSize="18"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="178" Margin="388,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
+        <TextBox x:Name="txtBox_Comments" HorizontalAlignment="Left" Height="178" Margin="388,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="251" VerticalScrollBarVisibility="Visible" ScrollViewer.CanContentScroll="True"/>
     </Grid>
 </Window>

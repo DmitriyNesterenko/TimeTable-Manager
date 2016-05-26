@@ -47,6 +47,7 @@ namespace Timetable_Manager
 
             currentLesson = myLesson;
             TBLessonName.Text = currentLesson.Name;
+            txtBox_Comments.Text = currentLesson.Comments.ToString();
 
             this.SetUpTimer();
 

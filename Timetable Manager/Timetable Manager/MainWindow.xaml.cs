@@ -134,7 +134,7 @@ namespace Timetable_Manager
                     int minutes = int.Parse(str[1].ToString());
                     int seconds = int.Parse(str[2].ToString());
 
-                    MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = new TimeSpan(hours, minutes, seconds), Id = reader[2].ToString(), Comments= new StringBuilder(reader["Comments"].ToString()) };
+                    MyLesson newItem = new MyLesson() { Name = reader["Item"].ToString(), TimeRest = new TimeSpan(hours, minutes, seconds), Id = reader["Id"].ToString(), Comments= new StringBuilder(reader["Comments"].ToString()) };
                     ListItem.Items.Add(newItem);
                     list.Add(newItem);
                 }
