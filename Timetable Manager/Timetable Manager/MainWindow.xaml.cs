@@ -171,57 +171,66 @@ namespace Timetable_Manager
         private void btn_AddLesson_Click(object sender, RoutedEventArgs e)
         {
             maxId++;
-            String itemStr = txtBox_Item.Text.Trim(trimChars);
-            MyLesson newItem = new MyLesson() { Id = maxId.ToString(), Name = itemStr };
 
-            #region Настройка времени модуля
-
-            LessonInfo lessonInfo = LessonSetUp.SetTime();
-            newItem.TimeRest = lessonInfo.windowTimeSetUp;
-            newItem.Comments = lessonInfo.comments;
-            dt = lessonInfo.dateForLesson;
-            if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
-                return;
-
-            #endregion
-
-            ListItem.Items.Add(newItem);
-            list.Add(newItem);
-            try
+            if(txtBox_Item.Text.Trim(trimChars) != "" || txtBox_Item.Text.Trim(trimChars) != String.Empty)
             {
-                if (connection.State == ConnectionState.Closed)
-                    connection.Open();
+                String itemStr = txtBox_Item.Text.Trim(trimChars);
+                MyLesson newItem = new MyLesson() { Id = maxId.ToString(), Name = itemStr };
 
-                String TimeRest = newItem.TimeRest.ToString();
+                #region Настройка времени модуля
 
-                SqlCommand command = new SqlCommand();
-                command.Connection = connection;
-                command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date, Comments) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date, '{newItem.Comments.ToString()}');";
+                LessonInfo lessonInfo = LessonSetUp.SetTime();
+                newItem.TimeRest = lessonInfo.windowTimeSetUp;
+                newItem.Comments = lessonInfo.comments;
+                dt = lessonInfo.dateForLesson;
+                if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
+                    return;
 
-                SqlParameter parameter = new SqlParameter();
-                parameter.ParameterName = "@Date";
-                parameter.SqlDbType = SqlDbType.Date;
-                parameter.Value = dt.Value.Day.ToString() + "/" + dt.Value.Month.ToString() + "/" + dt.Value.Year.ToString();
+                #endregion
 
-                command.Parameters.Add(parameter);
-                command.ExecuteNonQuery();
+                ListItem.Items.Add(newItem);
+                list.Add(newItem);
+                try
+                {
+                    if (connection.State == ConnectionState.Closed)
+                        connection.Open();
 
-                command.Dispose();
+                    String TimeRest = newItem.TimeRest.ToString();
+
+                    SqlCommand command = new SqlCommand();
+                    command.Connection = connection;
+                    command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date, Comments) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date, '{newItem.Comments.ToString()}');";
+
+                    SqlParameter parameter = new SqlParameter();
+                    parameter.ParameterName = "@Date";
+                    parameter.SqlDbType = SqlDbType.Date;
+                    parameter.Value = dt.Value.Day.ToString() + "/" + dt.Value.Month.ToString() + "/" + dt.Value.Year.ToString();
+
+                    command.Parameters.Add(parameter);
+                    command.ExecuteNonQuery();
+
+                    command.Dispose();
+                    txtBox_Item.Text = string.Empty;
+
+                    //Обновить ListItem.
+                    LoadData();
+
+                    if (connection.State == ConnectionState.Open)
+                        connection.Close();
+                }
+                catch (LessonSetUpException exc)
+                {
+                    MessageBox.Show(exc.Message, "Time set up error");
+                }
+                catch (Exception exc)
+                {
+                    MessageBox.Show(exc.Message, "Error");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Field for lesson name is empty", "Choose name for lesson");
                 txtBox_Item.Text = string.Empty;
-
-                //Обновить ListItem.
-                LoadData();
-
-                if (connection.State == ConnectionState.Open)
-                    connection.Close();
-            }
-            catch(LessonSetUpException exc)
-            {
-                MessageBox.Show(exc.Message, "Time set up error");
-            }
-            catch(Exception exc)
-            {
-                MessageBox.Show(exc.Message, "Error");
             }
         }
 
