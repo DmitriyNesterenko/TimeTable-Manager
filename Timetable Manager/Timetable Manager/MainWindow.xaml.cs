@@ -164,6 +164,11 @@ namespace Timetable_Manager
         {
             dt = DateTime.Now;
             lbl_date.Content = "Today: " + dt.Value.Day.ToString() + "." + dt.Value.Month.ToString() + "." + dt.Value.Year.ToString();
+
+            if (txtBox_Item.Text.Trim(trimChars) != "" || txtBox_Item.Text.Trim(trimChars) != String.Empty)
+                btn_AddLesson.IsEnabled = true;
+            else
+                btn_AddLesson.IsEnabled = false;
         }
 
         //This event AddItem to listView and add it to the database of the app.
@@ -172,65 +177,57 @@ namespace Timetable_Manager
         {
             maxId++;
 
-            if(txtBox_Item.Text.Trim(trimChars) != "" || txtBox_Item.Text.Trim(trimChars) != String.Empty)
+            String itemStr = txtBox_Item.Text.Trim(trimChars);
+            MyLesson newItem = new MyLesson() { Id = maxId.ToString(), Name = itemStr };
+
+            #region Настройка времени модуля
+
+            LessonInfo lessonInfo = LessonSetUp.SetTime();
+            newItem.TimeRest = lessonInfo.windowTimeSetUp;
+            newItem.Comments = lessonInfo.comments;
+            dt = lessonInfo.dateForLesson;
+            if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
+                return;
+
+            #endregion
+
+            ListItem.Items.Add(newItem);
+            list.Add(newItem);
+            try
             {
-                String itemStr = txtBox_Item.Text.Trim(trimChars);
-                MyLesson newItem = new MyLesson() { Id = maxId.ToString(), Name = itemStr };
+                if (connection.State == ConnectionState.Closed)
+                    connection.Open();
 
-                #region Настройка времени модуля
+                String TimeRest = newItem.TimeRest.ToString();
 
-                LessonInfo lessonInfo = LessonSetUp.SetTime();
-                newItem.TimeRest = lessonInfo.windowTimeSetUp;
-                newItem.Comments = lessonInfo.comments;
-                dt = lessonInfo.dateForLesson;
-                if (newItem.TimeRest.Minutes == 0 && newItem.TimeRest.Hours == 0)
-                    return;
+                SqlCommand command = new SqlCommand();
+                command.Connection = connection;
+                command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date, Comments) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date, '{newItem.Comments.ToString()}');";
 
-                #endregion
+                SqlParameter parameter = new SqlParameter();
+                parameter.ParameterName = "@Date";
+                parameter.SqlDbType = SqlDbType.Date;
+                parameter.Value = dt.Value.Day.ToString() + "/" + dt.Value.Month.ToString() + "/" + dt.Value.Year.ToString();
 
-                ListItem.Items.Add(newItem);
-                list.Add(newItem);
-                try
-                {
-                    if (connection.State == ConnectionState.Closed)
-                        connection.Open();
+                command.Parameters.Add(parameter);
+                command.ExecuteNonQuery();
 
-                    String TimeRest = newItem.TimeRest.ToString();
-
-                    SqlCommand command = new SqlCommand();
-                    command.Connection = connection;
-                    command.CommandText = $"INSERT INTO Item (Id, Item, Time, Date, Comments) VALUES ({int.Parse(newItem.Id)}, '{itemStr}', '{TimeRest}', @Date, '{newItem.Comments.ToString()}');";
-
-                    SqlParameter parameter = new SqlParameter();
-                    parameter.ParameterName = "@Date";
-                    parameter.SqlDbType = SqlDbType.Date;
-                    parameter.Value = dt.Value.Day.ToString() + "/" + dt.Value.Month.ToString() + "/" + dt.Value.Year.ToString();
-
-                    command.Parameters.Add(parameter);
-                    command.ExecuteNonQuery();
-
-                    command.Dispose();
-                    txtBox_Item.Text = string.Empty;
-
-                    //Обновить ListItem.
-                    LoadData();
-
-                    if (connection.State == ConnectionState.Open)
-                        connection.Close();
-                }
-                catch (LessonSetUpException exc)
-                {
-                    MessageBox.Show(exc.Message, "Time set up error");
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show(exc.Message, "Error");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Field for lesson name is empty", "Choose name for lesson");
+                command.Dispose();
                 txtBox_Item.Text = string.Empty;
+
+                //Обновить ListItem.
+                LoadData();
+
+                if (connection.State == ConnectionState.Open)
+                    connection.Close();
+            }
+            catch (LessonSetUpException exc)
+            {
+                MessageBox.Show(exc.Message, "Time set up error");
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message, "Error");
             }
         }
 
@@ -295,8 +292,8 @@ namespace Timetable_Manager
         private void menuBtn_About_Click(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(@"Authors: Dmitriy Nesterenko (NesterenkoDmitry96@gmail.com)" + Environment.NewLine +
-                "Anatoliy Rozhko (anatolyrozk@gmail.com)" + Environment.NewLine +
-                "Version: Build 0004");
+                "                Anatoliy Rozhko (anatolyrozk@gmail.com)" + Environment.NewLine +
+                "Version: b0.1");
         }
 
         //Начать работу с уроком. Открывается окно по работе с уроком.
@@ -335,6 +332,14 @@ namespace Timetable_Manager
             {
                 MessageBox.Show(exc.Message, "Change date on calander has been ended not succesfully");
             }
+        }
+
+        private void txtBox_Item_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (txtBox_Item.Text.Trim(trimChars) != "" || txtBox_Item.Text.Trim(trimChars) != String.Empty)
+                btn_AddLesson.IsEnabled = true;
+            else
+                btn_AddLesson.IsEnabled = false;
         }
     }
 }

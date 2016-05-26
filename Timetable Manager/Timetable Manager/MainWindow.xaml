@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Timetable_Manager"
         mc:Ignorable="d"
-        Title="Time Table: Build 0004" Height="436.988" Width="309.453" Loaded="Window_Loaded" Icon="C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\Resources\Graphicloads-Flat-Finance-Time.ico" WindowStyle="ToolWindow" Foreground="Black" ResizeMode="NoResize">
+        Title="Time Table" Height="436.988" Width="309.453" Loaded="Window_Loaded" Icon="C:\Users\Dmitriy\Documents\Visual Studio 2015\Projects\Timetable Manager\Timetable Manager\Resources\Graphicloads-Flat-Finance-Time.ico" WindowStyle="ToolWindow" Foreground="Black" ResizeMode="NoResize">
     <Window.Background>
         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
             <GradientStop Color="Black" Offset="0"/>
@@ -31,7 +31,7 @@
             </ListView.View>
         </ListView>
         <Label x:Name="lbl_date" Content="Today: " Margin="18,83,0,0" Width="175" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
-        <TextBox x:Name="txtBox_Item" HorizontalAlignment="Left" Height="23" Margin="17,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177">
+        <TextBox x:Name="txtBox_Item" HorizontalAlignment="Left" Height="23" Margin="17,55,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="177" TextChanged="txtBox_Item_TextChanged">
             <TextBox.BorderBrush>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="Black" Offset="0"/>
