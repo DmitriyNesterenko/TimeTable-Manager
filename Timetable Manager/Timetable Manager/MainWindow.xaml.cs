@@ -34,7 +34,6 @@ namespace Timetable_Manager
         public List<MyLesson> list = new List<MyLesson>();
         public static String connectionString = @"Data Source = (local)\SQLEXPRESS;
             Initial Catalog = TimeTable; Integrated Security = True";
-
         public static DateTime? dt = DateTime.Now;
 
         #endregion

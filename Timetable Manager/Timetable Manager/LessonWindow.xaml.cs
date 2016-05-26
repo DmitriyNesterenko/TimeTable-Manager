@@ -55,17 +55,27 @@ namespace Timetable_Manager
 
             #region Set up the view
 
-            if (time > (540 + 59))
+            if (time > (540 + 59)) // Больше чем 9.59
             {
-                TBCountDown.Text = string.Format("00:{0}:{1}", time / 60, time % 60);
-            }
-            else if (time >= 10)
-            {
-                TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                if ((time % 60) >= 10)
+                {
+                    TBCountDown.Text = string.Format("00:{0}:{1}", time / 60, time % 60);
+                }
+                else
+                {
+                    TBCountDown.Text = string.Format("00:{0}:0{1}", time / 60, time % 60);
+                }
             }
             else
             {
-                TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                if ((time % 60) >= 10)
+                {
+                    TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                }
+                else
+                {
+                    TBCountDown.Text = string.Format("00:0{0}:0{1}", time / 60, time % 60);
+                }
             }
 
             #endregion
@@ -126,17 +136,27 @@ namespace Timetable_Manager
         {
             this.SetUpTimer();
             currentLesson.TimeRest = new TimeSpan(0, time / 60, time % 60);
-            if (time > (540 + 59))
+            if (time > (540 + 59)) // Больше чем 9.59
             {
-                TBCountDown.Text = string.Format("00:{0}:{1}", time / 60, time % 60);
-            }
-            else if (time >= 10 && time <= (540 + 59))
-            {
-                TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                if ((time % 60) >= 10)
+                {
+                    TBCountDown.Text = string.Format("00:{0}:{1}", time / 60, time % 60);
+                }
+                else
+                {
+                    TBCountDown.Text = string.Format("00:{0}:0{1}", time / 60, time % 60);
+                }
             }
             else
             {
-                TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                if ((time % 60) >= 10)
+                {
+                    TBCountDown.Text = string.Format("00:0{0}:{1}", time / 60, time % 60);
+                }
+                else
+                {
+                    TBCountDown.Text = string.Format("00:0{0}:0{1}", time / 60, time % 60);
+                }
             }
         }
 
